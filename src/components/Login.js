@@ -1,3 +1,5 @@
+import { login } from '../lib/firebase';
+
 const Login = (onNavigate) => {
   // creacion de contenedores para la pantalla de inicio de sesión
   const LoginCont = document.createElement('section');
@@ -38,6 +40,16 @@ const Login = (onNavigate) => {
 
   // Agregar funciones a los botones
   linkRegist.addEventListener('click', () => onNavigate('/register'));
+
+  btnLogin.addEventListener('click', () => {
+    login(LoginMail.value, LoginPass.value)
+      .then((user) => onNavigate('/wall'))
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
 
   // Insertar los contenidos en el contenedor padre
   TitleCont.appendChild(LogoLogin);

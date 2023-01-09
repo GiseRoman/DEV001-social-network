@@ -1,3 +1,5 @@
+import { regist } from '../lib/firebase';
+
 const Register = (onNavigate) => {
   // creacion de contenedores para la pantalla de registro
   const RegisterCont = document.createElement('section');
@@ -24,7 +26,7 @@ const Register = (onNavigate) => {
   TitleUserName.className = 'inputTitles';
   RegistUserName.type = 'text';
   RegistUserName.required = '';
-  RegistUserName.placeholder = 'ej. SoñadoraDiurna91';
+  RegistUserName.placeholder = 'ej. SoñadoraDiurna';
   RegistUserName.className = 'inputReg';
   TitleMail.textContent = 'Correo electrónico';
   TitleMail.className = 'inputTitles';
@@ -45,6 +47,16 @@ const Register = (onNavigate) => {
 
   // Agregar funciones a los botones
   linkLogin.addEventListener('click', () => onNavigate('/login'));
+
+  btnRegister.addEventListener('click', () => {
+    regist(RegisterMail.value, RegisterPass.value)
+      .then((user) => onNavigate('/wall'))
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
 
   // Insertar los contenidos en el contenedor padre
   TitleCont.appendChild(LogoRegister);
