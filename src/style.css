@@ -145,6 +145,70 @@ section{
   opacity: 70%;
 }
 
+/* Diseño Wall */
+
+.inputPost{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  margin-top: .5rem;
+  margin-bottom: -1.1rem;
+  margin-left: 2.2rem;
+  height: 5.538rem;
+  width: 17.688rem;
+  border-radius: .938rem;
+  background-color: #FFEFE5;
+  font-family: 'Kurale';
+  font-size: 1.3rem;
+}
+
+::placeholder{
+  opacity: 70%;
+}
+
+.btnPost{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  margin: 1.3rem 13rem;
+  width: 6.875rem;
+  height: 2.188rem;
+  border-radius: 0.625rem;
+  padding-top: .2rem;
+  font-family: 'Merienda One';
+  font-size: 1.25rem;
+  background-color: #b681e4f3;
+  color: #FFFFFF;
+}
+
+.allPosts{
+  display: flex;
+  flex-direction: column;
+  margin-top: .5rem;
+  margin-bottom: -1.1rem;
+  margin-left: 4%;
+  height: 100%;
+  width: 19.813rem;
+  border-radius: .938rem;
+  background-color: #24d5f862;
+  font-family: 'Kurale';
+  font-size: 1.3rem;
+}
+
+.posts{
+  display: flex;
+  justify-content: center;
+  margin-top: 1.1rem;
+  margin-bottom: 1.1rem;
+  margin-left: 1rem;
+  height: 5.538rem;
+  width: 17.688rem;
+  border-radius: .938rem;
+  background-color: #FFEFE5;
+  font-family: 'Kurale';
+  font-size: 1.3rem;
+}
+
 /* Diseño para escritorio */
 
 /* @media only screen and (min-width: 722px) {

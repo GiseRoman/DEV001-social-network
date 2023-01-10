@@ -1,9 +1,17 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  getDocs,
+  getFirestore,
+  onSnapshot,
+} from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -22,10 +30,20 @@ const auth = getAuth(app);
 
 const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
 const regist = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+const savePost = (post) => addDoc(collection(db, 'posts'), { post });
+const getPost = () => getDocs(collection(db, 'posts'));
+const onGetPost = (callback) => onSnapshot(collection(db, 'posts'), callback);
+const loginGoogle = (provider) => signInWithPopup(auth, provider);
+const provider = new GoogleAuthProvider();
 
 export {
   db,
   auth,
   login,
   regist,
+  savePost,
+  getPost,
+  onGetPost,
+  loginGoogle,
+  provider,
 };
