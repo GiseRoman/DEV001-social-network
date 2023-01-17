@@ -2,9 +2,15 @@ import { initializeApp } from 'firebase/app';
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
+  getDoc,
   getDocs,
   getFirestore,
   onSnapshot,
+  orderBy,
+  query,
+  updateDoc,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +18,8 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
+  updateProfile,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -29,21 +37,46 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
-const regist = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-const savePost = (post) => addDoc(collection(db, 'posts'), { post });
-const getPost = () => getDocs(collection(db, 'posts'));
-const onGetPost = (callback) => onSnapshot(collection(db, 'posts'), callback);
+const regist = (userN, email, pass) => createUserWithEmailAndPassword(auth, email, pass)
+  .then(() => {
+    updateProfile(getAuth().currentUser, {
+      displayName: userN,
+    });
+  });
+const currentUserInfo = () => auth.currentUser;
+const savePost = (user, post, date, uid) => addDoc(collection(db, 'posts'), {
+  user,
+  post,
+  date,
+  uid,
+});
+const getPosts = () => getDocs(collection(db, 'posts'));
+const onGetPost = (querySnapshot) => {
+  const queryPost = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  onSnapshot(queryPost, querySnapshot);
+};
+const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
+const getPost = (id) => getDoc(doc(db, 'posts', id));
+const updatePost = (id, newPost) => updateDoc(doc(db, 'posts', id), newPost);
 const loginGoogle = (provider) => signInWithPopup(auth, provider);
 const provider = new GoogleAuthProvider();
+const logOut = async () => {
+  await signOut(auth);
+};
 
 export {
   db,
   auth,
   login,
   regist,
+  currentUserInfo,
   savePost,
-  getPost,
+  getPosts,
   onGetPost,
+  deletePost,
+  getPost,
+  updatePost,
   loginGoogle,
   provider,
+  logOut,
 };

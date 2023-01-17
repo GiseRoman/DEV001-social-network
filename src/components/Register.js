@@ -1,5 +1,5 @@
-// import { GoogleAuthProvider } from 'firebase/auth';
-import { regist } from '../lib/firebase';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { regist, loginGoogle, provider } from '../lib/firebase';
 
 const Register = (onNavigate) => {
   // creacion de contenedores para la pantalla de registro
@@ -15,7 +15,7 @@ const Register = (onNavigate) => {
   const TitlePass = document.createElement('p');
   const RegisterPass = document.createElement('input');
   const btnRegister = document.createElement('button');
-  // const btnRegisterGoogle = document.createElement('button');
+  const btnRegisterGoogle = document.createElement('button');
   const linkLogin = document.createElement('p');
 
   // Agregar contenidos al formulario y los botones
@@ -44,8 +44,8 @@ const Register = (onNavigate) => {
   RegisterPass.className = 'inputReg';
   btnRegister.textContent = 'Registrarse';
   btnRegister.className = 'btn';
-  // btnRegisterGoogle.textContent = 'Google';
-  // btnRegisterGoogle.className = 'btn';
+  btnRegisterGoogle.textContent = 'Google';
+  btnRegisterGoogle.className = 'btn';
   linkLogin.innerHTML = '¿Ya tienes una cuenta? <a href="">Inicia sesión</a>';
   linkLogin.className = 'linkLogReg';
 
@@ -53,7 +53,7 @@ const Register = (onNavigate) => {
   linkLogin.addEventListener('click', () => onNavigate('/login'));
 
   btnRegister.addEventListener('click', () => {
-    regist(RegisterMail.value, RegisterPass.value)
+    regist(RegistUserName.value, RegisterMail.value, RegisterPass.value)
       .then((user) => onNavigate('/wall'))
       .catch((error) => {
         const errorCode = error.code;
@@ -62,25 +62,26 @@ const Register = (onNavigate) => {
       });
   });
 
-  // btnRegisterGoogle.addEventListener('click', () => {
-  //   loginGoogle(provider)
-  //     .then((result) => {
-  //       const credential = GoogleAuthProvider.credentialFromResult(result);
-  //       const token = credential.accessToken;
+  btnRegisterGoogle.addEventListener('click', () => {
+    loginGoogle(provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
 
-  //       const user = result.user;
-  //       console.log(token, user);
-  //     }).catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
+        const user = result.user;
+        onNavigate('/wall');
+        console.log(token, user);
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
-  //       const email = error.customData.email;
+        const email = error.customData.email;
 
-  //       const credential = GoogleAuthProvider.credentialFromError(error);
+        const credential = GoogleAuthProvider.credentialFromError(error);
 
-  //       console.log(errorCode, errorMessage, email, credential);
-  //     });
-  // });
+        console.log(errorCode, errorMessage, email, credential);
+      });
+  });
 
   // Insertar los contenidos en el contenedor padre
   TitleCont.appendChild(LogoRegister);
@@ -94,7 +95,7 @@ const Register = (onNavigate) => {
   RegisterCont.appendChild(TitleCont);
   RegisterCont.appendChild(RegisterForm);
   RegisterCont.appendChild(btnRegister);
-  // RegisterCont.appendChild(btnRegisterGoogle);
+  RegisterCont.appendChild(btnRegisterGoogle);
   RegisterCont.appendChild(linkLogin);
 
   // retornar el contenedor padre

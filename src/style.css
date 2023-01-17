@@ -1,17 +1,17 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Courgette&family=Kurale&display=swap');
 
 html{
   padding: 0;
   margin: 0;
-  background: url('./img/lydsBackCel.png') no-repeat center fixed;
-  background-size: 100%;
+  background: url('./img/background.jpg') no-repeat center fixed;
+  background-size: 350%;
   padding-top: 4.25rem;
   height: 100%;
 }
 
 body{
   display: flex;
+  justify-content: center
 };
 
 /*  Diseño Home */
@@ -19,21 +19,30 @@ body{
 section{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .logoContHome{
   display: flex;
   justify-content: center;
-  margin-left: -.5rem;
-  height: 14.75rem;
-  width: 107.1%;
-  background-color: #ffe6d780;
+  height: 12.75rem;
+  padding-top: 4rem;
+  padding-left: 2rem;
+  background-color: #0a0604;
+  border-radius: 50%;
 }
 
 .logoHome{
-  margin-top: -0.75rem;
-  height: 16.25rem;
-  width: 16.25rem;
+  height: 9.25rem;
+  width: 9.25rem;
+}
+
+.logoHomeText{
+  font-size: 2.3rem;
+  font-family: 'Courgette';
+  color: #c1ab92     ;
+  padding-left: 1rem;
+  text-shadow: 0 0 .6re .2rem;
 }
 
 .titulo{
@@ -69,7 +78,7 @@ section{
   margin-bottom: 2.875rem;
   height: 7.438rem;
   width: 107.1%;
-  background-color: #ffe6d780;
+  background-color: #0a0604  ;
 }
 
 .logoLogReg{
@@ -147,72 +156,470 @@ section{
 
 /* Diseño Wall */
 
+.titleWall{
+  font-size: 2.3rem;
+  font-family: 'Courgette';
+  color: #c1ab92     ;
+  padding-left: 1rem;
+}
+
+.logoLogWall{
+  width: 6rem;
+  height: 6rem;
+  padding-left: 1rem;
+  padding-top: .5rem;
+}
+
+.logOut{
+  all: unset;
+  display: flex;
+  width: 5rem;
+  height: 1.7rem;
+  margin-top: -2.8rem;
+  margin-left: 80%;
+  margin-bottom: 2.5rem;
+  padding-left: 2.5%;
+  background-color: #ae774a ;
+  font-size: 1.3rem;
+  color: #dedace;
+}
+.logOut:hover{
+  cursor: pointer;
+}
+
+.postsCont{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+}
+
 .inputPost{
   all: unset;
   display: flex;
   justify-content: center;
   margin-top: .5rem;
-  margin-bottom: -1.1rem;
-  margin-left: 2.2rem;
+  margin-bottom: .1rem;
   height: 5.538rem;
   width: 17.688rem;
   border-radius: .938rem;
-  background-color: #FFEFE5;
+  background-color: #dedace ;
   font-family: 'Kurale';
   font-size: 1.3rem;
+  box-shadow: 0 0 .6rem .1rem;
 }
 
-::placeholder{
-  opacity: 70%;
-}
+  ::placeholder{
+    opacity: 70%;
+  }
 
 .btnPost{
   all: unset;
   display: flex;
   justify-content: center;
-  margin: 1.3rem 13rem;
+  margin-left: 10.6rem;
   width: 6.875rem;
   height: 2.188rem;
   border-radius: 0.625rem;
   padding-top: .2rem;
   font-family: 'Merienda One';
   font-size: 1.25rem;
-  background-color: #b681e4f3;
-  color: #FFFFFF;
+  box-shadow: .1rem .1rem .5rem #000;
+  background-color: #2e3054;
+  color: #dedace;
+  transition-duration: .5s;
 }
+  .btnPost:hover{
+    background-color: #983a11   ;
+    box-shadow: .05rem .05rem .3rem #dedace;
+    /* background-color: #2e3054; */
+    cursor: pointer;
+    transition-duration: .7s;
+  }
 
 .allPosts{
   display: flex;
   flex-direction: column;
   margin-top: .5rem;
-  margin-bottom: -1.1rem;
-  margin-left: 4%;
+  margin-top: 1.3rem;
+  margin-left: 1.5%;
+  padding-right: .1rem;
+  padding-left: .1rem;
   height: 100%;
   width: 19.813rem;
   border-radius: .938rem;
-  background-color: #24d5f862;
+  background-color: #637194ab  ;
   font-family: 'Kurale';
   font-size: 1.3rem;
 }
 
 .posts{
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
   margin-top: 1.1rem;
   margin-bottom: 1.1rem;
-  margin-left: 1rem;
-  height: 5.538rem;
+  margin-left: .6rem;
+  min-height: 5.538rem;
+  max-height: auto;
+  padding-left: .4rem;
+  padding-right: .4rem;
   width: 17.688rem;
   border-radius: .938rem;
-  background-color: #FFEFE5;
+  background-color: #dedacee3;
   font-family: 'Kurale';
   font-size: 1.3rem;
+  box-shadow: 0 0 .6rem .1rem;
 }
+
+.contPosts{
+  width: 100%;
+  height: auto;
+  margin-top: -5%;
+  padding-left: .4rem;
+  padding-bottom: .4rem;
+  padding-top: .2rem;
+  border-style: solid none solid none;
+  border-width: thin;
+  border-color: #0c0c1e ;
+  background-color: #dedace;
+}
+
+.postUser{
+  display: flex;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 7%;
+  padding-top: .2rem;
+  color:  #1c1831;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.btnTrash{
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-left: 80%;
+  margin-top: -21%;
+  margin-bottom: -25%;
+}
+
+.trashImg{
+  width: 100%;
+}
+.trashImg:hover{
+  cursor: pointer;
+}
+
+.btnEdit{
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  margin-left: 80%;
+  margin-top: -.5rem;
+}
+
+.pencilImg{
+  width: 3rem;
+  height: 3rem;
+}
+.pencilImg:hover{
+  cursor: pointer;
+}
+
+.btnLike{
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  margin-left: 80%;
+  margin-top: -.5rem;
+}
+
+.Like{
+  margin-top: -10%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.Like:hover{
+  cursor: pointer;
+}
+
+
+/* 
+.dataEdit{
+  display: none;
+  margin-left: 55%;
+  margin-right: -2.5%;
+  margin-top: -2%;
+  font-size: .9rem;
+  background-color: #b581e4;
+  width: auto;
+  height: 1.4rem;
+  padding-left: .2rem;
+  padding-right: .2rem;
+  border-radius: .5rem;
+} */
 
 /* Diseño para escritorio */
 
-/* @media only screen and (min-width: 722px) {
+@media only screen and (min-width: 722px) {
+  html{
+    padding: 0;
+    margin: 0;
+    background: url('./img/background.jpg') no-repeat center fixed;
+    background-size: 110%;
+    height: auto;
+    width: 100%;
+  }
+    body::-webkit-scrollbar{
+      width: 10px;
+  }
+  body::-webkit-scrollbar-track{
+      background: #120c35c2;
+  }
+  body::-webkit-scrollbar-thumb{
+      background-color: #22045aee;
+      border-radius: 35px;
+  }
 
+  .generalCont{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+  }
 
+  .titLogCont{
+    display: flex;
+    margin-top: -.5rem;
+    margin-left: -.5rem;
+    margin-bottom: 2.875rem;
+    height: 7.438rem;
+    width: 100%;
+    background-color: #0a0604;
+  }
 
-} */
+  
+  .postsCont{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+  }
+
+  .inputPost{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
+    margin-bottom: .3rem;
+    height: 5.538rem;
+    width: 36rem;
+    border-radius: .938rem;
+    background-color: #dedace ;
+    font-family: 'Kurale';
+    font-size: 1.3rem;
+    box-shadow: 0 0 .6rem .1rem;
+  }
+
+  ::placeholder{
+    opacity: 70%;
+  }
+
+  .btnPost{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    margin-left: 29rem;
+    width: 6.875rem;
+    height: 2.188rem;
+    border-radius: 0.625rem;
+    padding-top: .2rem;
+    font-family: 'Merienda One';
+    font-size: 1.25rem;
+    box-shadow: .1rem .1rem .5rem #000;
+    background-color: #2e3054;
+    color: #dedace;
+  }
+
+  .allPosts{
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
+    margin-top: 1.3rem;
+    margin-left: .1%;
+    padding-right: .1rem;
+    padding-left: .1rem;
+    height: 100%;
+    width: 36rem;
+    border-radius: .938rem;
+    background-color: #637194ab  ;
+    font-family: 'Kurale';
+    font-size: 1.3rem;
+  }
+
+  .posts{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+    margin-left: .6rem;
+    min-height: 5.538rem;
+    max-height: auto;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    width: 34rem;
+    border-radius: .938rem;
+    background-color: #dedacee3;
+    font-family: 'Kurale';
+    font-size: 1.3rem;
+    box-shadow: 0 0 .6rem .1rem;
+  }
+
+  .contPosts{
+    width: 100%;
+    height: auto;
+    margin-top: -5%;
+    padding-left: .4rem;
+    padding-bottom: .4rem;
+    padding-top: .2rem;
+    border-style: solid none solid none;
+    border-width: thin;
+    border-color: #0c0c1e ;
+    background-color: #dedace;
+  }
+
+  .postUser{
+    display: flex;
+    width: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-top: .1rem;
+    padding-bottom: .5rem;
+    color:  #1c1831;
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  .btnTrash{
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    width: 3.5rem;
+    height: 3rem;
+    margin-left: 88%;
+    margin-top: -12.5%;
+    margin-bottom: 3.5%;
+  }
+  
+  .trashImg{
+    width: 100%;
+  }
+  
+  .btnEdit{
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin-top: -.5rem;
+    margin-left: 89%;
+    margin-bottom: -3%;
+  }
+
+  .modalEdit{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 15rem;
+    background-color: #04040498 ;
+  }
+  
+  .modalEditConts{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #dedace;
+    width: 30%;
+    margin: auto;
+    padding: .5rem;
+    padding-left: 2rem;
+    border: .2rem solid #0c0c1e;
+    border-radius: .8rem;
+  }
+  
+  .btnEditSi{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    margin-left: -1rem;
+    width: 6.875rem;
+    height: 2.188rem;
+    border-radius: 0.625rem;
+    padding-top: .2rem;
+    font-family: 'Merienda One';
+    font-size: 1.25rem;
+    box-shadow: .1rem .1rem .5rem #000;
+    background-color: #2e3054;
+    color: #dedace;
+  }
+
+    .btnEditSi:hover{
+      background-color: #983a11   ;
+      box-shadow: .05rem .05rem .3rem #dedace;
+      /* background-color: #2e3054; */
+      cursor: pointer;
+      transition-duration: .7s;
+    }
+
+  .btnEditCancel{
+    all: unset;
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+    width: 6.875rem;
+    height: 2.188rem;
+    border-radius: 0.625rem;
+    padding-top: .2rem;
+    font-family: 'Merienda One';
+    font-size: 1.25rem;
+    box-shadow: .1rem .1rem .5rem #000;
+    background-color: #2e3054;
+    color: #dedace;
+  }
+  
+    .btnEditCancel:hover{
+      background-color: #983a11   ;
+      box-shadow: .05rem .05rem .3rem #dedace;
+      /* background-color: #2e3054; */
+      cursor: pointer;
+      transition-duration: .7s;
+    }
+
+  .pencilImg{
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .btnLike{
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin-left: 89%;
+    margin-top: -.5rem;
+    margin-bottom: -3%;
+  }
+  
+  .Like{
+    width: 2.7rem;
+    height: 2.8rem;
+  }
+}
