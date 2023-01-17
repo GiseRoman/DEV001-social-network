@@ -49,7 +49,7 @@ const Login = (onNavigate) => {
 
   btnLogin.addEventListener('click', () => {
     login(LoginMail.value, LoginPass.value)
-      .then((user) => onNavigate('/wall'))
+      .then(() => onNavigate('/wall'))
       .catch((error) => {
         if (error.code === 'auth/email-alrady-in-use') {
           ErrorCode.textContent = 'El correo que intentas ingresar ya se encuentra registrado';

@@ -17,6 +17,7 @@ const Register = (onNavigate) => {
   const btnRegister = document.createElement('button');
   const btnRegisterGoogle = document.createElement('button');
   const linkLogin = document.createElement('p');
+  const ErrorCode = document.createElement('p');
 
   // Agregar contenidos al formulario y los botones
   TitleCont.className = 'titLogCont';
@@ -56,30 +57,21 @@ const Register = (onNavigate) => {
     regist(RegistUserName.value, RegisterMail.value, RegisterPass.value)
       .then((user) => onNavigate('/wall'))
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        if (error.code) {
+          ErrorCode.textContent = 'error';
+        }
       });
   });
 
   btnRegisterGoogle.addEventListener('click', () => {
     loginGoogle(provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-
-        const user = result.user;
+        GoogleAuthProvider.credentialFromResult(result);
         onNavigate('/wall');
-        console.log(token, user);
       }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        const email = error.customData.email;
-
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-        console.log(errorCode, errorMessage, email, credential);
+        if (error.code) {
+          ErrorCode.textContent = 'error';
+        }
       });
   });
 
