@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { GoogleAuthProvider } from 'firebase/auth';
 import { regist, loginGoogle, provider } from '../lib/firebase';
 
@@ -21,7 +22,7 @@ const Register = (onNavigate) => {
 
   // Agregar contenidos al formulario y los botones
   TitleCont.className = 'titLogCont';
-  LogoRegister.src = '../img/lyds.svg';
+  LogoRegister.src = '../img/libros.png';
   LogoRegister.className = 'logoLogReg';
   RegisterTitle.textContent = 'Regístrate';
   RegisterTitle.className = 'titleRegist';
@@ -45,8 +46,10 @@ const Register = (onNavigate) => {
   RegisterPass.className = 'inputReg';
   btnRegister.textContent = 'Registrarse';
   btnRegister.className = 'btn';
+  btnRegister.id = 'btnRegister';
   btnRegisterGoogle.textContent = 'Google';
   btnRegisterGoogle.className = 'btn';
+  btnRegisterGoogle.id = 'btnRegisterGoog';
   linkLogin.innerHTML = '¿Ya tienes una cuenta? <a href="">Inicia sesión</a>';
   linkLogin.className = 'linkLogReg';
 

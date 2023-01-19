@@ -10,12 +10,12 @@ const Home = (onNavigate) => {
 
   // Agregar contenidos a los botones
   HomeLogoCont.className = 'logoContHome';
-  HomeLogo.src = '../img/logoBook.svg';
+  HomeLogo.src = '../img/libros.png';
   HomeLogo.alt = 'Love Your Damn Self Logo';
   HomeLogo.className = 'logoHome';
   HomeLogoText.textContent = 'Home of readers';
   HomeLogoText.className = 'logoHomeText';
-  HomeTitle.textContent = 'Bienvenida/o';
+  HomeTitle.textContent = 'Home of readers';
   HomeTitle.className = 'titulo';
   btnLogin.textContent = 'Iniciar sesión';
   btnLogin.className = 'btn';
@@ -29,7 +29,7 @@ const Home = (onNavigate) => {
 
   // Insertar los contenidos en el contenedor padre
   HomeLogoCont.append(HomeLogo);
-  HomeLogoCont.append(HomeLogoText);
+  // HomeLogoCont.append(HomeLogoText);
   HomeCont.append(HomeLogoCont);
   HomeCont.append(HomeTitle);
   HomeCont.append(btnLogin);

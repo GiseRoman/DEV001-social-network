@@ -19,7 +19,7 @@ const Login = (onNavigate) => {
 
   // Agregar contenidos al formulario y los botones
   TitleCont.className = 'titLogCont';
-  LogoLogin.src = '../img/lyds.svg';
+  LogoLogin.src = '../img/libros.png';
   LogoLogin.className = 'logoLogReg';
   LoginTitle.textContent = 'Inicia tu sesión';
   LoginTitle.className = 'titleLogin';
